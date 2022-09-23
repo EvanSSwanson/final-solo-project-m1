@@ -7,12 +7,40 @@
     <title>Rock-Paper-Scissors</title>
   </head>
   <body>
-    <header>
-      <h1><span class='rock-title'>ROCK </span><span class='paper-title'>PAPER </span><span class='scissors-title'>SCISSORS</span></h1>
-      <!-- Not sure if I even want a title. Might want a more minimalist look. -->
-    </header>
     <main>
+      <section class='view home-view'>
+        <button class='switch-button'>Switch Mode</button>
+        <section class='classic-container'>
+          <img class='rock' src='./assets/icons8-stone-512.png' alt='rock icon'>
+          <img class='paper' src='./assets/icons8-paper-400.png' alt='paper icon'>
+          <img class='scissors' src='./assets/icons8-scissors-400.png' alt='scissors icon'>
+        </section>
+        <section class ='elemental-container hidden'>
+          <img class='fire' src='./assets/icons8-fire-512.png' alt='fire icon'>
+          <img class='grass' src='./assets/icons8-grass-512.png' alt='grass icon'>
+          <img class='stone' src='./assets/icons8-stone-512.png' alt='stone icon'>
+          <img class='ice' src='./assets/icons8-snowflake-512.png' alt='ice icon'>
+          <img class='water' src='./assets/icons8-water-512.png' alt='water icon'>
+        </section>
+        <section class='win-container hidden'>
+        </section>
+        <section class='right-container'>
+          <div class='player-tab' id='player1-tab'>
+            <h2 class='player-header' id='player1-header'>P1: </h2>
+            <p class='player-wins' id='player1-wins'>Wins: </p>
+          </div>
+          <div class='player-tab' id='player2-tab'>
+            <h2 class='player-header' id='player2-header'>P2: </h2>
+            <p class='player-wins' id='player2-wins'>Wins: </p>
+          </div>
+        </section>
+      </section>
+      <section class='view rules-view hidden'>
+        <h1 class='rules'>Rules for Elemental Mode</h1>
+      </section>
     </main>
-    <script type ='text/javascript' src='scripts.js'></script>
+    <script type= 'text/javascript' src='./src/player.js'></script>
+    <script type ='text/javascript' src='./src/game.js'></script>
+    <script type ='text/javascript' src='./src/scripts.js'></script>
   </body>
 </html>
