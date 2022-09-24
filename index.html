@@ -2,25 +2,35 @@
 <html lang='en' dir='ltr'>
   <head>
     <link href='styles.css' type='text/css' rel='stylesheet'>
-    <!-- <link href font -->
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap" rel="stylesheet">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Rock-Paper-Scissors</title>
   </head>
   <body>
+    <header>
+      <button class='switch-button'>Switch Mode</button>
+    </header>
     <main>
       <section class='view home-view'>
-        <button class='switch-button'>Switch Mode</button>
         <section class='classic-container'>
-          <img class='rock' src='./assets/icons8-stone-512.png' alt='rock icon'>
-          <img class='paper' src='./assets/icons8-paper-400.png' alt='paper icon'>
-          <img class='scissors' src='./assets/icons8-scissors-400.png' alt='scissors icon'>
+          <img class='classic-image' id='rock' src='./assets/icons8-stone-512.png' alt='rock icon'>
+          <img class='classic-image' id='paper' src='./assets/icons8-paper-400.png' alt='paper icon'>
+          <img class='classic-image' id='scissors' src='./assets/icons8-scissors-400.png' alt='scissors icon'>
         </section>
-        <section class ='elemental-container hidden'>
-          <img class='fire' src='./assets/icons8-fire-512.png' alt='fire icon'>
-          <img class='grass' src='./assets/icons8-grass-512.png' alt='grass icon'>
-          <img class='stone' src='./assets/icons8-stone-512.png' alt='stone icon'>
-          <img class='ice' src='./assets/icons8-snowflake-512.png' alt='ice icon'>
-          <img class='water' src='./assets/icons8-water-512.png' alt='water icon'>
+        <section class='elemental-container hidden'>
+          <div class='rows'>
+            <div class='elemental-row' id='elemental-row1'>
+              <img class='elemental-image' id='fire' src='./assets/icons8-fire-512.png' alt='fire icon'>
+            </div>
+            <div class='elemental-row' id='elemental-row2'>
+              <img class='elemental-image' id='water' src='./assets/icons8-water-512.png' alt='water icon'>
+              <img class='elemental-image' id='grass' src='./assets/icons8-grass-512.png' alt='grass icon'>
+            </div>
+            <div class='elemental-row' id='elemental-row3'>
+              <img class='elemental-image' id='ice' src='./assets/icons8-snowflake-512.png' alt='ice icon'>
+              <img class='elemental-image' id='stone' src='./assets/icons8-stone-512.png' alt='stone icon'>
+            </div>
+          </div>
         </section>
         <section class='win-container hidden'>
         </section>
@@ -33,10 +43,9 @@
             <h2 class='player-header' id='player2-header'>P2: </h2>
             <p class='player-wins' id='player2-wins'>Wins: </p>
           </div>
+          <img class='classic-diagram' src='./assets/classic-diagram.png' alt='win condition diagram'>
+          <img class='elemental-diagram hidden' src='./assets/elemental-diagram.png' alt='win condition diagram (elemental)'>
         </section>
-      </section>
-      <section class='view rules-view hidden'>
-        <h1 class='rules'>Rules for Elemental Mode</h1>
       </section>
     </main>
     <script type= 'text/javascript' src='./src/player.js'></script>
