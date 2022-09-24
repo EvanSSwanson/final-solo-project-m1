@@ -1,5 +1,7 @@
 *{
   background-color: #D8D7FE;
+    /* background-color: #FFC854; */
+    /* Maybe orange with green or sumn? */
   /* border: solid magenta; */
   box-sizing: border-box;
   font-family: 'Reem Kufi Ink';
@@ -42,11 +44,11 @@ header {
 .elemental-container {
   display: flex;
   justify-content: center;
-  margin-top: 2vw;
+  margin-top: none;
   width: 75%;
 }
 
-.rows {
+.elemental-rows {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -92,19 +94,31 @@ header {
   cursor: pointer;
 }
 
+#rock {
+  height:18vw;
+  width: 18vw;
+}
+
 .classic-image:hover {
   height: 21vw;
   width: 21vw;
 }
 
+#rock:hover {
+  height: 19vw;
+  width: 19vw;
+}
+
 #elemental-row1 {
   display: flex;
   justify-content: center;
+  margin-bottom: none;
 }
 
 #elemental-row2 {
   display: flex;
   justify-content: center;
+  margin-top: none;
   margin-bottom: 6vw;
   /* justify-content: space-around; */
 }
