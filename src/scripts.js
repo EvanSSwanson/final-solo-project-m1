@@ -3,11 +3,12 @@ var loginView = document.querySelector('.login-view')
 var homeView = document.querySelector('.home-view')
 var fightView = document.querySelector('.fight-view')
 var switchButton = document.querySelector('.switch-button')
+var nextButton = document.querySelector('.next-button')
 var classicContainer = document.querySelector('.classic-container')
 var elementalContainer = document.querySelector('.elemental-container')
 var fightContainer = document.querySelector('.fight-container')
-var classicDiagram = document.querySelector('.classic-diagram')
-var elementalDiagram = document.querySelector('.elemental-diagram')
+var classicDiagram = document.querySelectorAll('.classic-diagram')
+var elementalDiagram = document.querySelectorAll('.elemental-diagram')
 var classicWeapons = document.querySelectorAll('.classic-image')
 // 0 = rock, 1 = paper, 2 = scissors
 var elementalWeapons = document.querySelectorAll('.elemental-image')
@@ -18,6 +19,7 @@ var playerOne = new Player('Evan', '🗿')
 var playerTwo = new Player('Computer', '🎭')
 
 switchButton.addEventListener('click', switchMode)
+nextButton.addEventListener('click', returnHome)
 classicWeapons[0].addEventListener('click', selectRock)
 classicWeapons[1].addEventListener('click', selectPaper)
 classicWeapons[2].addEventListener('click', selectScissors)
@@ -30,8 +32,17 @@ elementalWeapons[4].addEventListener('click', selectStone)
 function switchMode() {
   classicContainer.classList.toggle('hidden')
   elementalContainer.classList.toggle('hidden')
-  classicDiagram.classList.toggle('hidden')
-  elementalDiagram.classList.toggle('hidden')
+  classicDiagram[0].classList.toggle('hidden')
+  classicDiagram[1].classList.toggle('hidden')
+  elementalDiagram[0].classList.toggle('hidden')
+  elementalDiagram[1].classList.toggle('hidden')
+}
+
+function returnHome() {
+  homeView.classList.toggle('hidden')
+  fightView.classList.toggle('hidden')
+  switchButton.classList.toggle('hidden')
+  nextButton.classList.toggle('hidden')
 }
 
 function pickRandom(mode) {
@@ -52,6 +63,8 @@ function pickRandom(mode) {
     fightContainer.innerHTML = fightHTML
     homeView.classList.toggle('hidden')
     fightView.classList.toggle('hidden')
+    switchButton.classList.toggle('hidden')
+    nextButton.classList.toggle('hidden')
   }
 
 function selectRock() {
