@@ -2,8 +2,10 @@
 var loginView = document.querySelector('.login-view')
 var homeView = document.querySelector('.home-view')
 var fightView = document.querySelector('.fight-view')
+var startButton = document.querySelector('.start-button')
 var switchButton = document.querySelector('.switch-button')
 var nextButton = document.querySelector('.next-button')
+var resetButtons = document.querySelectorAll('.reset-button')
 var classicContainer = document.querySelector('.classic-container')
 var elementalContainer = document.querySelector('.elemental-container')
 var fightContainer = document.querySelector('.fight-container')
@@ -13,21 +15,29 @@ var classicWeapons = document.querySelectorAll('.classic-image')
 // 0 = rock, 1 = paper, 2 = scissors
 var elementalWeapons = document.querySelectorAll('.elemental-image')
 // 0 = fire, 1 = water, 2 = grass, 3 = ice, 4 = stone
+var winCounts = document.querySelectorAll('.player-wins')
 
 
-var playerOne = new Player('Evan', '🗿')
-var playerTwo = new Player('Computer', '🎭')
+var game = new Game('Classic')
 
+startButton.addEventListener('click', enterHome)
 switchButton.addEventListener('click', switchMode)
 nextButton.addEventListener('click', returnHome)
-classicWeapons[0].addEventListener('click', selectRock)
-classicWeapons[1].addEventListener('click', selectPaper)
-classicWeapons[2].addEventListener('click', selectScissors)
-elementalWeapons[0].addEventListener('click', selectFire)
-elementalWeapons[1].addEventListener('click', selectWater)
-elementalWeapons[2].addEventListener('click', selectGrass)
-elementalWeapons[3].addEventListener('click', selectIce)
-elementalWeapons[4].addEventListener('click', selectStone)
+resetButtons[0].addEventListener('click', resetWinCount)
+resetButtons[1].addEventListener('click', resetWinCount)
+for (var i = 0; i < 3; i ++) {
+  classicWeapons[i].addEventListener('click', pickWeapons)
+}
+for (var i = 0; i < 5; i ++) {
+  elementalWeapons[i].addEventListener('click', pickWeapons)
+}
+
+function enterHome() {
+  startButton.classList.toggle('hidden')
+  switchButton.classList.toggle('hidden')
+  loginView.classList.toggle('hidden')
+  homeView.classList.toggle('hidden')
+}
 
 function switchMode() {
   classicContainer.classList.toggle('hidden')
@@ -45,57 +55,68 @@ function returnHome() {
   nextButton.classList.toggle('hidden')
 }
 
-function pickRandom(mode) {
-  var newRound = new Game(mode)
-  var randomIndex = Math.floor(Math.random() * newRound.weapons)
-    if (mode === 'Classic') {
-      playerTwo.weapon = classicWeapons[randomIndex].id
-    }
-    if (mode === 'Elemental') {
-      playerTwo.weapon = elementalWeapons[randomIndex].id
-    }
-    console.log(playerOne)
-    console.log(playerTwo)
-    var fightHTML = `
-    <img class='chosen-image' id='chosen-one' src='./assets/icons8-${playerOne.weapon}.png' alt='${playerOne.weapon} icon'>
-    <img class='chosen-image' id='chosen-two' src='./assets/icons8-${playerTwo.weapon}.png' alt='${playerTwo.weapon} icon'>
-    `
-    fightContainer.innerHTML = fightHTML
-    homeView.classList.toggle('hidden')
-    fightView.classList.toggle('hidden')
-    switchButton.classList.toggle('hidden')
-    nextButton.classList.toggle('hidden')
+function seeResult() {
+  homeView.classList.toggle('hidden')
+  fightView.classList.toggle('hidden')
+  switchButton.classList.toggle('hidden')
+  nextButton.classList.toggle('hidden')
+}
+
+function resetWinCount() {
+  game.resetWins()
+
+  winCounts[0].innerHTML = `Wins: ${game.p1.wins}`
+  winCounts[2].innerHTML = `Wins: ${game.p1.wins}`
+  winCounts[1].innerHTML = `Wins: ${game.p2.wins}`
+  winCounts[3].innerHTML = `Wins: ${game.p2.wins}`
+}
+
+function play() {
+  game.playRound()
+
+  var fightHTML = `
+  <img class='chosen-image' id='chosen-one' src='./assets/icons8-${game.p1.weapon}.png' alt='${game.p1.weapon} icon'>
+  <img class='chosen-image' id='chosen-two' src='./assets/icons8-${game.p2.weapon}.png' alt='${game.p2.weapon} icon'>
+  `
+  fightContainer.innerHTML = fightHTML
+
+  winCounts[0].innerHTML = `Wins: ${game.p1.wins}`
+  winCounts[2].innerHTML = `Wins: ${game.p1.wins}`
+  winCounts[1].innerHTML = `Wins: ${game.p2.wins}`
+  winCounts[3].innerHTML = `Wins: ${game.p2.wins}`
+
+  seeResult()
   }
 
-function selectRock() {
-  playerOne.weapon = 'rock'
-  pickRandom('Classic')
+function pickWeapons() {
+  if (event.target.id === 'rock') {
+    game.classicDeclare('rock')
+  }
+  if (event.target.id === 'paper') {
+    game.classicDeclare('paper')
+  }
+  if (event.target.id === 'scissors') {
+    game.classicDeclare('scissors')
+  }
+  if (event.target.id === 'fire') {
+    game.elementalDeclare('fire')
+  }
+  if (event.target.id === 'water') {
+    game.elementalDeclare('water')
+  }
+  if (event.target.id === 'grass') {
+    game.elementalDeclare('grass')
+  }
+  if (event.target.id === 'ice') {
+    game.elementalDeclare('ice')
+  }
+  if (event.target.id === 'stone') {
+    game.elementalDeclare('stone')
+  }
+  play()
 }
-function selectPaper() {
-  playerOne.weapon = 'paper'
-  pickRandom('Classic')
-}
-function selectScissors() {
-  playerOne.weapon = 'scissors'
-  pickRandom('Classic')
-}
-function selectFire() {
-  playerOne.weapon = 'fire'
-  pickRandom('Elemental')
-}
-function selectWater() {
-  playerOne.weapon = 'water'
-  pickRandom('Elemental')
-}
-function selectGrass() {
-  playerOne.weapon = 'grass'
-  pickRandom('Elemental')
-}
-function selectIce() {
-  playerOne.weapon = 'ice'
-  pickRandom('Elemental')
-}
-function selectStone() {
-  playerOne.weapon = 'stone'
-  pickRandom('Elemental')
-}
+
+// function selectRock() {
+//   game.classicDeclare('rock')
+//   playRound()
+// }

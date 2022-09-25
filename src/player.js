@@ -4,6 +4,5 @@ class Player {
     this.token = token;
     this.wins = 0;
     this.weapon = '';
-    this.HTML = ``;
   }
 }

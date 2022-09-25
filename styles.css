@@ -10,7 +10,7 @@
 header {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin: 10px;
 }
 
 button {
@@ -86,6 +86,19 @@ button:hover {
   margin-bottom: 50px;
 }
 
+#player2-wins {
+  margin-bottom: 20px;
+}
+
+.reset-button {
+  margin-bottom: 20px;
+}
+
+.reset-button:hover {
+  color: #FFFFFF;
+  background-color: #81518F;
+}
+
 .classic-diagram, .elemental-diagram {
   height: 20vw;
   width: 20vw;
@@ -117,6 +130,7 @@ button:hover {
 #elemental-row1 {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
   margin-bottom: none;
 }
 

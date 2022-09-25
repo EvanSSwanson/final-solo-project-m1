@@ -8,11 +8,34 @@
   </head>
   <body>
     <header>
-      <button class='switch-button'>Switch Mode</button>
+      <button class='start-button'>Start Game</button>
+      <button class='switch-button hidden'>Switch Mode</button>
       <button class='next-button hidden'>Next Round</button>
     </header>
     <main>
-      <section class='view home-view'>
+      <section class='view login-view'>
+        <section class='login-container'>
+          <form class='login-box' id='login-p1'>
+            <h2 class='player-declaration'>P1:</h2>
+            <div class='input-area'>
+              <label for="name1">Name:</label>
+              <input type="text" id="name1" name="name1"><br><br>
+              <label for="name1">Icon:</label>
+              <input type="text" id="fname" name="fname">
+            </div>
+          </form>
+          <form class='login-box' id='login-p2'>
+            <h2 class='player-declaration'>P2:</h2>
+            <div class='input-area'>
+              <label for="fname">Name:</label>
+              <input type="text" id="fname" name="fname"><br><br>
+              <label for="fname">Icon:</label>
+              <input type="text" id="fname" name="fname">
+            </div>
+          </form>
+        </section>
+      </section>
+      <section class='view home-view hidden'>
         <section class='classic-container'>
           <img class='classic-image' id='rock' src='./assets/icons8-rock.png' alt='rock icon'>
           <img class='classic-image' id='paper' src='./assets/icons8-paper.png' alt='paper icon'>
@@ -42,6 +65,7 @@
             <h2 class='player-header' id='player2-header'>P2: </h2>
             <p class='player-wins' id='player2-wins'>Wins: </p>
           </div>
+          <button class='reset-button'>Reset Wins</button>
           <img class='classic-diagram' src='./assets/classic-diagram.png' alt='win condition diagram'>
           <img class='elemental-diagram hidden' src='./assets/elemental-diagram.png' alt='win condition diagram (elemental)'>
         </section>
@@ -58,6 +82,7 @@
             <h2 class='player-header' id='player2-header'>P2: </h2>
             <p class='player-wins' id='player2-wins'>Wins: </p>
           </div>
+          <button class='reset-button'>Reset Wins</button>
           <img class='classic-diagram' src='./assets/classic-diagram.png' alt='win condition diagram'>
           <img class='elemental-diagram hidden' src='./assets/elemental-diagram.png' alt='win condition diagram (elemental)'>
         </section>
