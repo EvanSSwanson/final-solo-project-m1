@@ -34,6 +34,17 @@ button:hover {
   min-height: 100vh;
 }
 
+.login-view {
+  justify-content: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
 .classic-container {
   display: flex;
   justify-content: center;

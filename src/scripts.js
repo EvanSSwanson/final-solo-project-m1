@@ -1,4 +1,4 @@
-//Initial commit
+//Global Variables
 var loginView = document.querySelector('.login-view')
 var homeView = document.querySelector('.home-view')
 var fightView = document.querySelector('.fight-view')
@@ -12,26 +12,23 @@ var fightContainer = document.querySelector('.fight-container')
 var classicDiagram = document.querySelectorAll('.classic-diagram')
 var elementalDiagram = document.querySelectorAll('.elemental-diagram')
 var classicWeapons = document.querySelectorAll('.classic-image')
-// 0 = rock, 1 = paper, 2 = scissors
 var elementalWeapons = document.querySelectorAll('.elemental-image')
-// 0 = fire, 1 = water, 2 = grass, 3 = ice, 4 = stone
 var winCounts = document.querySelectorAll('.player-wins')
-
-
 var game = new Game('Classic')
-
+//Event Listeners
 startButton.addEventListener('click', enterHome)
 switchButton.addEventListener('click', switchMode)
 nextButton.addEventListener('click', returnHome)
-resetButtons[0].addEventListener('click', resetWinCount)
-resetButtons[1].addEventListener('click', resetWinCount)
+for (var i = 0; i < 2; i ++) {
+  resetButtons[i].addEventListener('click', resetWinCount)
+}
 for (var i = 0; i < 3; i ++) {
   classicWeapons[i].addEventListener('click', pickWeapons)
 }
 for (var i = 0; i < 5; i ++) {
   elementalWeapons[i].addEventListener('click', pickWeapons)
 }
-
+//Change-View Functions
 function enterHome() {
   startButton.classList.toggle('hidden')
   switchButton.classList.toggle('hidden')
@@ -61,7 +58,7 @@ function seeResult() {
   switchButton.classList.toggle('hidden')
   nextButton.classList.toggle('hidden')
 }
-
+//Game Interaction-Functions
 function resetWinCount() {
   game.resetWins()
 
@@ -115,8 +112,3 @@ function pickWeapons() {
   }
   play()
 }
-
-// function selectRock() {
-//   game.classicDeclare('rock')
-//   playRound()
-// }
