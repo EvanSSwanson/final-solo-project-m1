@@ -15,22 +15,15 @@
     <main>
       <section class='view login-view'>
         <section class='login-container'>
-          <form class='login-box' id='login-p1'>
-            <h2 class='player-declaration'>P1:</h2>
+          <form class='login-box'>
             <div class='input-area'>
-              <p class='name'>Name:</p>
-              <input type="text" id="name1"><br><br>
-              <p class='emoji1'>Emoji:</p>
-              <input type="text" id="emoji1">
-            </div>
-          </form>
-          <form class='login-box' id='login-p2'>
-            <h2 class='player-declaration'>P2:</h2>
-            <div class='input-area'>
-              <p class='name'>Name:</p>
-              <input type="text" id="name2"><br><br>
-              <p class='emoji2'>Emoji:</p>
-              <input type="text" id="emoji2">
+              <p class='name-title'>Name:</p>
+              <input type='text' id='name-input'><br><br>
+              <p class='emoji-title'>Emoji:</p>
+              <div class='emoji-container'>
+                <p class='emoji-row1'> <span class='emoji' id='football'>🏈</span><span class='emoji' id='shamrock'>🍀</span><span class='emoji' id='badger'>🦡</span><span class='emoji' id='cheese'>🧀</span></p>
+                <p class='emoji-row2'> <span class='emoji' id='tiger'>🐯</span><span class='emoji' id='beaver'>🦫</span><span class='emoji' id='gator'>🐊</span><span class='emoji' id='mountain'>🏔</span></p>
+              </div>
             </div>
           </form>
         </section>
@@ -59,11 +52,11 @@
         <section class='right-container'>
           <div class='player-tab' id='player1-tab'>
             <h2 class='player-header' id='player1-header'>P1: </h2>
-            <p class='player-wins' id='player1-wins'>Wins: </p>
+            <p class='player-wins' id='player1-wins'>Wins: 0</p>
           </div>
           <div class='player-tab' id='player2-tab'>
             <h2 class='player-header' id='player2-header'>P2: </h2>
-            <p class='player-wins' id='player2-wins'>Wins: </p>
+            <p class='player-wins' id='player2-wins'>Wins: 0</p>
           </div>
           <button class='reset-button'>Reset Wins</button>
           <img class='classic-diagram' src='./assets/classic-diagram.png' alt='win condition diagram'>

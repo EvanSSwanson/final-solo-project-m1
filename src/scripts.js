@@ -9,6 +9,9 @@ var resetButtons = document.querySelectorAll('.reset-button')
 var classicContainer = document.querySelector('.classic-container')
 var elementalContainer = document.querySelector('.elemental-container')
 var fightContainer = document.querySelector('.fight-container')
+var nameInput = document.getElementById('name-input')
+var emojis = document.querySelectorAll('.emoji')
+var playerNames = document.querySelectorAll('.player-header')
 var classicDiagram = document.querySelectorAll('.classic-diagram')
 var elementalDiagram = document.querySelectorAll('.elemental-diagram')
 var classicWeapons = document.querySelectorAll('.classic-image')
@@ -19,6 +22,9 @@ var game = new Game('Classic')
 startButton.addEventListener('click', enterHome)
 switchButton.addEventListener('click', switchMode)
 nextButton.addEventListener('click', returnHome)
+for (var i = 0; i < 8; i ++) {
+  emojis[i].addEventListener('click', selectEmoji)
+}
 for (var i = 0; i < 2; i ++) {
   resetButtons[i].addEventListener('click', resetWinCount)
 }
@@ -29,11 +35,25 @@ for (var i = 0; i < 5; i ++) {
   elementalWeapons[i].addEventListener('click', pickWeapons)
 }
 //Change-View Functions
+
+function setPlayers() {
+  playerNames[0].innerText =`P1: ${game.p1.name} ${game.p1.icon}` ;
+  playerNames[1].innerText =`P2: ${game.p2.name} ${game.p2.icon}` ;
+  playerNames[2].innerText =`P1: ${game.p1.name} ${game.p1.icon}` ;
+  playerNames[3].innerText =`P2: ${game.p2.name} ${game.p2.icon}` ;
+}
+
 function enterHome() {
-  startButton.classList.toggle('hidden')
-  switchButton.classList.toggle('hidden')
-  loginView.classList.toggle('hidden')
-  homeView.classList.toggle('hidden')
+  game.assignName(nameInput.value)
+  setPlayers()
+  if ((game.p1.name || game.p1.icon) === undefined) {
+    alert('You must enter a name and choose an emoji!')
+  } else {
+    startButton.classList.toggle('hidden')
+    switchButton.classList.toggle('hidden')
+    loginView.classList.toggle('hidden')
+    homeView.classList.toggle('hidden')
+  }
 }
 
 function switchMode() {
@@ -59,6 +79,36 @@ function seeResult() {
   nextButton.classList.toggle('hidden')
 }
 //Game Interaction-Functions
+
+function selectEmoji() {
+  var selectedEmoji;
+  if (event.target.id === 'football') {
+    game.assignEmoji('🏈')
+  }
+  if (event.target.id === 'shamrock') {
+    game.assignEmoji('🍀')
+  }
+  if (event.target.id === 'badger') {
+    game.assignEmoji('🦡')
+  }
+  if (event.target.id === 'cheese') {
+    game.assignEmoji('🧀')
+
+  }
+  if (event.target.id === 'tiger') {
+    game.assignEmoji('🐯')
+  }
+  if (event.target.id === 'beaver') {
+    game.assignEmoji('🦫')
+  }
+  if (event.target.id === 'gator') {
+    game.assignEmoji('🐊')
+  }
+  if (event.target.id === 'mountain') {
+    game.assignEmoji('🏔')
+  }
+}
+
 function resetWinCount() {
   game.resetWins()
 
@@ -73,6 +123,7 @@ function play() {
 
   var fightHTML = `
   <img class='chosen-image' id='chosen-one' src='./assets/icons8-${game.p1.weapon}.png' alt='${game.p1.weapon} icon'>
+  <h1 class='vs'><em>VS</em>    </h1>
   <img class='chosen-image' id='chosen-two' src='./assets/icons8-${game.p2.weapon}.png' alt='${game.p2.weapon} icon'>
   `
   fightContainer.innerHTML = fightHTML

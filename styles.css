@@ -45,6 +45,53 @@ button:hover {
   width: 100%;
 }
 
+.login-box {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.input-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.name-title, .emoji-title {
+  font-size: 2vw;
+}
+
+#name-input {
+  border-radius: 1vw;
+  border: .3vw solid #81518F;
+  font-size: 1.5vw;
+  height: 4vw;
+  width: 18vw;
+  text-align: center;
+}
+
+.emoji-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.emoji-row1, .emoji-row2, {
+  display: flex;
+  justify-content: space-around;
+}
+
+.emoji {
+  font-size: 3vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  cursor: pointer;
+}
+
+.emoji:hover {
+  font-size: 4vw;
+}
+
 .classic-container {
   display: flex;
   justify-content: center;
@@ -84,8 +131,16 @@ button:hover {
 }
 
 .player-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #D7F8F4;
   border-top-left-radius: 80px 80px;
+}
+
+#player1-wins, #player2-wins {
+  margin-top: .5vw;
+  margin-bottom: 0vw;
 }
 
 .player-header {
@@ -181,6 +236,13 @@ button:hover {
 .chosen-image {
   height: 19vw;
   width: 18vw;
+}
+
+.vs {
+  font-size: 4vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-top: 7vw;
 }
 
 .hidden {
