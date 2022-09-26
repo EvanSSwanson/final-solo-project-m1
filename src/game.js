@@ -1,12 +1,20 @@
 class Game {
   constructor(mode) {
-    this.p1 = new Player('Evan', '🗿');
+    this.p1 = new Player();
     this.p2 = new Player('Computer', '🎭');
     this.mode = mode;
     this.rounds = 0
     this.classics = ['rock', 'paper', 'scissors']
     this.elementals = ['fire', 'water', 'grass', 'ice', 'stone']
   }
+
+    assignName(name) {
+      this.p1.name = name;
+    }
+
+    assignEmoji(emoji) {
+      this.p1.icon = emoji;
+    }
 
     makeRandomIndex(array) {
       return Math.floor(Math.random() * array.length)
