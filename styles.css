@@ -1,8 +1,5 @@
 *{
   background-color: #D8D7FE;
-    /* background-color: #FFC854; */
-    /* Maybe orange with green or sumn? */
-  /* border: solid magenta; */
   box-sizing: border-box;
   font-family: 'Reem Kufi Ink';
 }
@@ -14,28 +11,23 @@ header {
 }
 
 button {
+  background-color: #B477BB;
   border-radius: 1vw;
   border: none;
+  color: #FFFFFF;
+  cursor: pointer;
   font-size: 1.5vw;
   height: 4vw;
   width: 15vw;
-  cursor: pointer;
-  background-color: #B477BB;
-  color: #FFFFFF;
 }
 
 button:hover {
-  background-color: #D7F8F4;
-  color: #000000;
+  background-color: #81518F;
 }
 
 .view {
   display: flex;
   min-height: 100vh;
-}
-
-.login-view {
-  justify-content: center;
 }
 
 .login-container {
@@ -53,8 +45,8 @@ button:hover {
 
 .input-area {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   width: 70%;
 }
 
@@ -82,10 +74,10 @@ button:hover {
 }
 
 .emoji {
+  cursor: pointer;
   font-size: 3vw;
   margin-left: 3vw;
   margin-right: 3vw;
-  cursor: pointer;
 }
 
 .emoji:hover {
@@ -99,11 +91,26 @@ button:hover {
   width: 75%;
 }
 
-.fight-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 10vw;
-  width: 75%;
+#rock {
+  cursor: pointer;
+  height:18vw;
+  width: 18vw;
+}
+
+#rock:hover {
+  height: 19vw;
+  width: 19vw;
+}
+
+#paper, #scissors {
+  cursor: pointer;
+  height: 20vw;
+  width: 20vw;
+}
+
+#paper:hover, #scissors:hover {
+  height: 21vw;
+  width: 21vw;
 }
 
 .elemental-container {
@@ -114,83 +121,11 @@ button:hover {
 }
 
 .elemental-rows {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    height: 100%;
-}
-
-.right-container {
-  background-color: #D7F8F4;
   display: flex;
+  align-items: stretch;
   flex-direction: column;
-  align-items: center;
-  width: 25%;
-  border-top-left-radius: 4vw 4vw;
-}
-
-.player-tab {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #D7F8F4;
-  border-top-left-radius: 80px 80px;
-}
-
-#player1-wins, #player2-wins {
-  margin-top: .5vw;
-  margin-bottom: 0vw;
-}
-
-.player-header {
-  background-color: #D7F8F4;
-}
-
-.player-wins {
-  background-color: #D7F8F4;
-  margin-bottom: 50px;
-}
-
-#player2-wins {
-  margin-bottom: 20px;
-}
-
-.reset-button {
-  margin-bottom: 20px;
-}
-
-.reset-button:hover {
-  color: #FFFFFF;
-  background-color: #81518F;
-}
-
-.classic-diagram, .elemental-diagram {
-  height: 20vw;
-  width: 20vw;
-  background-color: #D7F8F4;
-  margin-top: 10px;
-}
-
-.classic-image {
-  height: 20vw;
-  width: 20vw;
-  cursor: pointer;
-}
-
-#rock {
-  height:18vw;
-  width: 18vw;
-}
-
-.classic-image:hover {
-  height: 21vw;
-  width: 21vw;
-}
-
-#rock:hover {
-  height: 19vw;
-  width: 19vw;
+  width: 100%;
+  height: 100%;
 }
 
 #elemental-row1 {
@@ -212,13 +147,13 @@ button:hover {
   justify-content: center;
 }
 
-.elemental-image {
+#fire, #water, #grass, #ice, #stone {
+  cursor: pointer;
   height: 12vw;
   width: 12vw;
-  cursor: pointer;
 }
 
-.elemental-image:hover {
+#fire:hover, #water:hover, #grass:hover, #ice:hover, #stone:hover {
   height: 13vw;
   width: 13vw;
 }
@@ -233,16 +168,70 @@ button:hover {
   margin-right: 3vw;
 }
 
+.right-container {
+  display: flex;
+  align-items: center;
+  background-color: #D7F8F4;
+  flex-direction: column;
+  width: 25%;
+  border-top-left-radius: 4vw 4vw;
+}
+
+.player-tab {
+  display: flex;
+  align-items: center;
+  background-color: #D7F8F4;
+  border-top-left-radius: 80px 80px;
+  flex-direction: column;
+}
+
+#player1-wins {
+  margin-top: .5vw;
+  margin-bottom: 0vw;
+}
+
+#player2-wins {
+  margin-top: .5vw;
+  margin-bottom: 20px;
+}
+
+.player-header {
+  background-color: #D7F8F4;
+}
+
+.player-wins {
+  background-color: #D7F8F4;
+  margin-bottom: 50px;
+}
+
+.reset-button {
+  margin-bottom: 20px;
+}
+
+.classic-diagram, .elemental-diagram {
+  background-color: #D7F8F4;
+  height: 20vw;
+  margin-top: 10px;
+  width: 20vw;
+}
+
+.fight-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vw;
+  width: 75%;
+}
+
 .chosen-image {
-  height: 19vw;
+  height: 18vw;
   width: 18vw;
 }
 
 .vs {
   font-size: 4vw;
+  margin-top: 7vw;
   margin-left: 1vw;
   margin-right: 1vw;
-  margin-top: 7vw;
 }
 
 .hidden {
