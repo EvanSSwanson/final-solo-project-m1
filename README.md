@@ -2,6 +2,11 @@
 
 This rendition of Rock Paper Scissors is a web-based application that allows a user to play both classic rock-paper-scissors and a 5-way elemental version against a computer. This application employs HTML, CSS, and JavaScript.
 
+## Installation Instructions:
+- Clone [this repo](https://github.com/EvanSSwanson/final-solo-project-m1) to your local computer
+- Navigate to this folder in your terminal
+- Run the command: open index.html
+
 ## Preview of App:
 
 ![Brief features gif](https://media.giphy.com/media/bruZQD9VgdisRTRk0n/giphy.gif)
