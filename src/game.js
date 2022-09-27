@@ -9,15 +9,15 @@ class Game {
 
     assignName(name) {
       this.p1.name = name;
-    }
+    };
 
     assignEmoji(emoji) {
       this.p1.icon = emoji;
-    }
+    };
 
     makeRandomIndex(array) {
-      return Math.floor(Math.random() * array.length)
-    }
+      return Math.floor(Math.random() * array.length);
+    };
 
     declareWeapons(weapon) {
       this.p1.weapon = weapon;
@@ -28,17 +28,17 @@ class Game {
         var randomNum = this.makeRandomIndex(this.elementals)
         this.p2.weapon = this.elementals[randomNum];
       }
-    }
+    };
 
     checkDraw() {
       if (this.p1.weapon === this.p2.weapon) {
         this.p1.recentWinner = false;
         this.p2.recentWinner = false;
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
-    }
+    };
 
     checkWin() {
       var winner;
@@ -61,18 +61,18 @@ class Game {
         this.p2.wins += 1;
       }
       return winner;
-    }
+    };
 
     playRound() {
-      this.rounds += 1
+      this.rounds += 1;
       if (!this.checkDraw()) {
-        game.checkWin()
+        game.checkWin();
       }
-    }
+    };
 
     resetWins() {
       this.p1.wins = 0;
       this.p2.wins = 0;
-    }
+    };
 
-  }
+  };
